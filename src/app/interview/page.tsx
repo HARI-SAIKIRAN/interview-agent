@@ -16,8 +16,9 @@ export default function LandingPage() {
     'AI / ML Engineer',
     'Product Manager',
   ];
-
   const levels = ['Junior', 'Mid-Level', 'Senior', 'Tech Lead'];
+
+  const sessionHref = `/interview?role=${encodeURIComponent(role)}&level=${encodeURIComponent(level)}`;
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col justify-between font-sans selection:bg-emerald-500 selection:text-slate-950">
@@ -28,12 +29,12 @@ export default function LandingPage() {
       <header className="relative z-10 border-b border-slate-800/80 bg-slate-900/40 backdrop-blur px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-            <Bot className="w-5 h-5" />
+            <span className="text-sm">🤖</span>
           </div>
           <span className="font-bold text-lg tracking-tight">The Interview Agent</span>
         </div>
         <div className="flex items-center gap-2 text-xs text-slate-400 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-full">
-          <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+          <span className="text-emerald-400">✨</span>
           <span>v1.0 Adaptive AI Engine</span>
         </div>
       </header>
@@ -42,16 +43,20 @@ export default function LandingPage() {
       <main className="relative z-10 max-w-4xl mx-auto px-6 py-12 flex-1 flex flex-col justify-center items-center text-center">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium mb-6">
-          <Zap className="w-3.5 h-3.5" />
+          <span className="inline-flex w-3.5 h-3.5 items-center justify-center">⚡</span>
           <span>Next-Gen Technical Interview Practice</span>
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white max-w-2xl leading-tight">
-          Master your tech interviews with an <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">Adaptive AI</span>.
+          Master your tech interviews with an{' '}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">
+            Adaptive AI
+          </span>
+          .
         </h1>
-
         <p className="mt-4 text-slate-400 text-base sm:text-lg max-w-xl leading-relaxed">
-          Unlike standard mock tools, our agent adapts in real time—probing shallow answers, challenging trade-offs, and scoring your performance.
+          Unlike standard mock tools, our agent adapts in real time—probing shallow answers,
+          challenging trade-offs, and scoring your performance.
         </p>
 
         {/* Configuration Card */}
@@ -103,34 +108,32 @@ export default function LandingPage() {
 
           {/* Start Session CTA */}
           <Link
-            href="/interview"
+            href={sessionHref}
             className="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2 group shadow-lg shadow-emerald-500/10"
           >
             <span>Start Interview Session</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition" />
+            <span className="inline-flex w-4 h-4 items-center justify-center transition group-hover:translate-x-0.5">→</span>
           </Link>
         </div>
 
         {/* Value Highlights */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-12 w-full max-w-3xl text-left">
           <div className="bg-slate-900/50 border border-slate-800/80 p-4 rounded-xl">
-            <ShieldCheck className="w-5 h-5 text-emerald-400 mb-2" />
+            <span className="inline-flex w-5 h-5 items-center justify-center text-emerald-400 mb-2">🛡️</span>
             <h3 className="text-xs font-bold text-slate-200">Adaptive Probing</h3>
             <p className="text-xs text-slate-400 mt-1">
               Catches vague responses and pushes you for technical specifics.
             </p>
           </div>
-
           <div className="bg-slate-900/50 border border-slate-800/80 p-4 rounded-xl">
-            <Zap className="w-5 h-5 text-emerald-400 mb-2" />
+            <span className="inline-flex w-5 h-5 items-center justify-center text-emerald-400 mb-2">⚡</span>
             <h3 className="text-xs font-bold text-slate-200">Real-Time Evaluation</h3>
             <p className="text-xs text-slate-400 mt-1">
               Monitors depth, clarity, and architectural reasoning dynamically.
             </p>
           </div>
-
           <div className="bg-slate-900/50 border border-slate-800/80 p-4 rounded-xl">
-            <Award className="w-5 h-5 text-emerald-400 mb-2" />
+            <span className="inline-flex w-5 h-5 items-center justify-center text-emerald-400 mb-2">🏆</span>
             <h3 className="text-xs font-bold text-slate-200">Detailed Feedback</h3>
             <p className="text-xs text-slate-400 mt-1">
               Get targeted scorecards and exact areas for improvement.
